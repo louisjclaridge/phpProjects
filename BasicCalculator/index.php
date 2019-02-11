@@ -23,7 +23,7 @@ if(empty($output) == false)
 //outputing the final result
 echo $output;
 }
-else if
+else
 {
 	echo "invalid number"; //default output if the field is empty
 }
