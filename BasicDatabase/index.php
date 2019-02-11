@@ -17,18 +17,20 @@ $conn = new mysqli($servername, $username, $password, $db );
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
+//Creating a SQL query 
 $sql = "SELECT * FROM test";
+//Executing the SQL query based on the previously defined connection and query
 $result = mysqli_query($conn, $sql);
 
-if (mysqli_num_rows($result) != 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["userID"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-    }
-} else {
-    echo "0 results";
+
+//Iterating through each row of the result and outputing the contents of that row
+while($row = mysqli_fetch_assoc($result))
+{
+   echo "id: " . $row["userID"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
 }
 
+
+
+//closing the connection
 mysqli_close($conn);
 ?>
